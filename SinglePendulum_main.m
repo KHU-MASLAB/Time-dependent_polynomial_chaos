@@ -33,9 +33,9 @@ Det = SolveDeterministic(Prop,init);
 video(Det.t,Det.disp,Prop)
 
 %% MonteCarlo
-% MC = SolveMonteCarlo_par("rv_mean",2,"rv_level",0.05,"nSample",500,"nWorkers",8,"th1_0",-deg2rad(45));
+MC = SolveMonteCarlo_par("rv_mean",2,"rv_level",0.05,"nSample",500,"nWorkers",8,"th1_0",-deg2rad(45));
 % MC = SolveMonteCarlo("rv_mean",2,"rv_level",0.05,"nSample",500,"th1_0",-deg2rad(45),"endTime",30);
-MC = ReadMonteCarlo("MC_Sample500_L2_dL0.05_th45");
+% MC = ReadMonteCarlo("MC_Sample500_L2_dL0.05_th45");
 
 %% Polynomial chaos
 PC = SolvePC("rv_level",0.05,"o",4,"th1_0",-deg2rad(45),"rv_mean",2);

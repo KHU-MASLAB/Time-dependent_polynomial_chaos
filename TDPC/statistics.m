@@ -17,7 +17,7 @@ for j = 1:2*DOF
     kurt_temp(j,:) = real((mu4 - 4*mean_temp(j,:).*mu3 + 6*mean_temp(j,:).^2.*mu2 - 3*mean_temp(j,:).^4)./var_temp(j,:).^2);
 end
 
-rvth  =  TDbasis * ye(1:end-2,1+2*P:3*P)';
-rvdth  =  TDbasis * ye(1:end-2,1+5*P:6*P)';
+rvth  =  TDbasis * ye(1:lent,1+2*P:3*P)';
+rvdth  =  TDbasis * ye(1:lent,1+(DOF+2)*P:(DOF+3)*P)';
         
 end

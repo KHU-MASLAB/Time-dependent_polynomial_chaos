@@ -1,4 +1,4 @@
-function [update_flag, rve] = select_rv(rve,co,ctrv_old,trig,i)
+function [update_flag, rv, rv_list] = select_rv(rve,co,ctrv_old,trig,i)
     rv_list = 1;
     [Nsample,Nvar] = size(rve);
     for j = 2:Nvar
@@ -23,7 +23,7 @@ function [update_flag, rve] = select_rv(rve,co,ctrv_old,trig,i)
                 rv_list = 1;
         end
     end
-    rve = rve(:,rv_list);
+    rv = rve(:,rv_list);
     if length(rv_list) == 1
         update_flag = 0;
     else

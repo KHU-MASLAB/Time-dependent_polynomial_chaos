@@ -1,8 +1,10 @@
-function plotall_Error(t_PC,t_TDPC,mean_MC,mean_PC,mean_TDPC,tit)
+function plotall_Error(MC,PC,TDPC,tit)
+t_MC = MC.t_MC; t_PC = PC.t_PC; t_TDPC = TDPC.t_TDPC;
+eval("mu_MC = MC."+tit+"_MC;"); eval("mu_PC = PC."+tit+"_PC;"); eval("mu_TDPC = TDPC."+tit+"_TDPC;")
 
 fontsize=20;
-Error_PC = abs( (mean_PC - mean_MC(1:size(mean_PC,1),:))./mean_MC(1:size(mean_PC,1),:) );
-Error_TDPC = abs( (mean_TDPC' - mean_MC(1:size(mean_TDPC',1),:))./mean_MC(1:size(mean_TDPC',1),:) );
+Error_PC = abs( (mu_PC - mu_MC(1:size(mu_PC,1),:))./mu_MC(1:size(mu_PC,1),:) );
+Error_TDPC = abs( (mu_TDPC' - mu_MC(1:size(mu_TDPC',1),:))./mu_MC(1:size(mu_TDPC',1),:) );
 titles = ["X disp.","Y disp","theta angle","X vel.","Y vel.","theta angular vel."];
 endtime = t_TDPC(end);
 h = (length(t_TDPC)-1)/endtime;

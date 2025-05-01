@@ -1,5 +1,8 @@
-function plot_moments(t_MC,t_PC,t_TDPC,mu_MC,mu_PC,mu_TDPC,tit)
-
+function plot_moments(MC,PC,TDPC,tit)
+t_MC = MC.t_MC; t_PC = PC.t_PC; 
+t_TDPC = TDPC.t_TDPC;
+eval("mu_MC = MC."+tit+"_MC;"); eval("mu_PC = PC."+tit+"_PC;"); 
+eval("mu_TDPC = TDPC."+tit+"_TDPC;")
 close all;
 fontsize=20;
 titles = ["X disp.","Y disp","th angle","X vel.","Y vel.","th vel."];
@@ -14,11 +17,11 @@ for i = 1:6
     grid on
     plot(t_MC,mu_MC(:,i),'-k','LineWidth',1.5)
     plot(t_PC,mu_PC(:,i),'-.b','LineWidth',1.5)
-    plot(t_TDPC,mu_TDPC(i,:),'--r','LineWidth',2)
+    plot(t_TDPC,mu_TDPC(:,i),'--r','LineWidth',2)
     
     plot(t_MC,mu_MC(:,i),'squark','LineWidth',2,'MarkerIndices',1:h:length(t_MC),'MarkerSize',15)
     plot(t_PC,mu_PC(:,i),'ob','LineWidth',2,'MarkerIndices',1:h:length(t_PC),'MarkerSize',10)
-    plot(t_TDPC,mu_TDPC(i,:),'^r','LineWidth',2,'MarkerIndices',1:h:length(t_TDPC),'MarkerSize',15)
+    plot(t_TDPC,mu_TDPC(:,i),'^r','LineWidth',2,'MarkerIndices',1:h:length(t_TDPC),'MarkerSize',15)
 
     xlabel('time')
     ylabel(titles(i))
